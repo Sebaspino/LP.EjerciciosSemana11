@@ -6,23 +6,24 @@ public class menu1 {
     public static void main(String[] args) {
         System.out.println("Menu - Ejercicios semana 3");
 
-        Scanner entradaDato;
-
+        Scanner entradaDato = new Scanner(System.in);
+        ;
         int ejercicio;
-        do {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Ingresar el ejercicio que desea validar (1 a 20): ");
-            ejercicio = sc.nextInt();
-            if (ejercicio < 1 || ejercicio > 20) {
-                System.out.println("Valor inválido. Por favor, ingrese valores entre 1 y 20.");
-            }
-        } while (ejercicio < 1 || ejercicio > 20);
 
+        do {
+            System.out.println("Ingresar el ejercicio que desea validar entre 1 y 20; ó 0 para Salir ");
+            ejercicio = entradaDato.nextInt();
+            ejercicios(ejercicio);
+            System.out.println(" ");
+        } while (ejercicio != 0);
+    }
+
+    public static void ejercicios(int ejercicio) {
         switch (ejercicio) {
             case 1:
                 System.out.println("Ejercicio 01");
 
-                entradaDato = new Scanner(System.in);
+                Scanner entradaDato = new Scanner(System.in);
 
                 System.out.println("Escriba el primer número: ");
                 int a = entradaDato.nextInt();
@@ -487,6 +488,12 @@ public class menu1 {
                 }
                 entradaDatos.close();
                 break;
+            case 0:
+                    System.out.println("Muchas gracias por ejecutar. Adios.");
+                    break;
+            default:
+                    System.out.println("Ingrese un valor valido");
+                    break;
         }
     }
 }
